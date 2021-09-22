@@ -1,0 +1,196 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro';
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 60%;
+  height: 100vh;
+  text-align: center;
+  margin: auto;
+  overflow: auto;
+}
+
+.container {
+  padding-bottom: 7rem;
+  position: relative;
+}
+
+.title {
+  color: #000000;
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.input {
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  padding: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  color: #000000;
+  font-family: 'Source Sans Pro';
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.select {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.due-date,
+.priority {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.due-date input {
+  width: 80%;
+  border: 1px solid #000000;
+}
+
+input {
+  padding: 0.5rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+button {
+  color: #ffffff;
+  padding: 0.5rem;
+  font-family: Arimo;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.primary {
+  font-size: 1.5rem;
+  background: #5cb85c;
+  border: none;
+  border-radius: 1rem;
+  width: 100%;
+}
+
+/* List Todo */
+
+.todo-wrapper {
+  margin-bottom: 1rem;
+}
+
+.todo-item {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.checkbox input {
+  margin-right: 1rem;
+}
+
+.checkbox label {
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.detailBtn {
+  background: #00bcd4;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 2rem;
+  margin-right: 1rem;
+}
+
+.removeBtn {
+  background: #d9534f;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.info-todo {
+  padding: 1.5rem;
+  border: 1px solid #000000;
+  border-top: none;
+  border-radius: 0px;
+}
+
+.bulk-action {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  background: #e0e0e0;
+  border: 1px solid #000000;
+  border-radius: 0px;
+  padding: 2rem;
+}
+
+.bulk-action p {
+  color: #333333;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.bulk-action .doneBtn {
+  font-size: 1.2rem;
+  background: #2196f3;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  margin-right: 2rem;
+}
+.bulk-action .removeBtn {
+  padding: 1rem;
+}
