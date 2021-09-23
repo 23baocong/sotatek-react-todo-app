@@ -41,3 +41,9 @@ export function searchByTitle(title) {
       .includes(title.toLowerCase().replace(/ +/g, ''))
   )
 }
+
+export function removeTodoByListID(listID) {
+  listID.forEach((element) => {
+    deleteTodo(element)
+  })
+}

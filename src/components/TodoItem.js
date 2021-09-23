@@ -22,16 +22,17 @@ export default function TodoItem(props) {
     const action = !todoChecked
     setTodoChecked(!todoChecked)
     if (action) {
-      const currentListTodoChecked = bulkActionContext.listTodoChecked
-      currentListTodoChecked.push(props.todo.id)
-      bulkActionContext.setListTodoChecked(currentListTodoChecked)
+      bulkActionContext.setListTodoChecked([
+        ...bulkActionContext.listTodoChecked,
+        props.todo.id,
+      ])
     } else {
       const currentListTodoChecked = bulkActionContext.listTodoChecked
       const removeIndex = currentListTodoChecked.findIndex(
         (id) => id === props.todo.id
       )
       currentListTodoChecked.splice(removeIndex, 1)
-      bulkActionContext.setListTodoChecked(currentListTodoChecked)
+      bulkActionContext.setListTodoChecked([...currentListTodoChecked])
     }
   }
 

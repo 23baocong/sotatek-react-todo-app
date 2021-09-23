@@ -3,7 +3,12 @@ import Text from 'components/Text'
 import Input from 'components/Input'
 import TodoItem from 'components/TodoItem'
 import BulkAction from 'components/BulkAction'
-import { listTodo, searchByTitle, deleteTodo } from 'services/TodoService'
+import {
+  listTodo,
+  searchByTitle,
+  deleteTodo,
+  removeTodoByListID,
+} from 'services/TodoService'
 import { useBulkActionContext } from 'contexts/BulkActionContext'
 import { Link } from 'react-router-dom'
 
@@ -20,7 +25,7 @@ function List() {
   const [searchValue, setSearchValue] = useState('')
   const [bulkActionOpen, setBulkActionOpen] = useState(false)
 
-  const { listTodoChecked } = useBulkActionContext()
+  const { listTodoChecked, setListTodoChecked } = useBulkActionContext()
 
   const handleSearchByTitle = (e) => {
     setSearchValue(e.target.value)
@@ -41,6 +46,13 @@ function List() {
       setBulkActionOpen(false)
     }
   }, [listTodoChecked])
+
+  const handleRemoveListTodo = () => {
+    removeTodoByListID(listTodoChecked)
+    alert('Remove todo success')
+    setCurrentTodoList(listTodo())
+    setListTodoChecked([])
+  }
 
   return (
     <div className="container">
@@ -65,7 +77,9 @@ function List() {
       ) : (
         <EmptyTodoList />
       )}
-      {bulkActionOpen ? <BulkAction /> : null}
+      {bulkActionOpen ? (
+        <BulkAction handleOnRemoveTodoListClick={handleRemoveListTodo} />
+      ) : null}
     </div>
   )
 }
