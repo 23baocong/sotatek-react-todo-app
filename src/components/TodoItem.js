@@ -93,7 +93,9 @@ export default function TodoItem(props) {
             handleOnChange={handleTodoChecked}
             checked={todoChecked}
           />
-          <Label>{title}</Label>
+          <Label type={props.todo.completed ? 'line-through' : ''}>
+            {title}
+          </Label>
         </div>
         <div>
           <Button buttonType="detailBtn" handleOnClick={toggleTodoInfoHandle}>

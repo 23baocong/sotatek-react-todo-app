@@ -7,7 +7,12 @@ export default function BulkAction(props) {
     <div className="bulk-action">
       <Text>Bulk Action:</Text>
       <div>
-        <Button buttonType="doneBtn">Done</Button>
+        <Button
+          buttonType="doneBtn"
+          handleOnClick={props.handleOnCompleteTodoListClick}
+        >
+          Done
+        </Button>
         <Button
           buttonType="removeBtn"
           handleOnClick={props.handleOnRemoveTodoListClick}

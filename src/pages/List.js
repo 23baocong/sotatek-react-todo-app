@@ -8,6 +8,7 @@ import {
   searchByTitle,
   deleteTodo,
   removeTodoByListID,
+  completeTodoByListID,
 } from 'services/TodoService'
 import { useBulkActionContext } from 'contexts/BulkActionContext'
 import { Link } from 'react-router-dom'
@@ -54,6 +55,13 @@ function List() {
     setListTodoChecked([])
   }
 
+  const handleCompleteListTodo = () => {
+    completeTodoByListID(listTodoChecked)
+    alert('Todo completed')
+    setCurrentTodoList(listTodo())
+    setListTodoChecked([])
+  }
+
   return (
     <div className="container">
       <Text textType="title">To Do List</Text>
@@ -78,7 +86,10 @@ function List() {
         <EmptyTodoList />
       )}
       {bulkActionOpen ? (
-        <BulkAction handleOnRemoveTodoListClick={handleRemoveListTodo} />
+        <BulkAction
+          handleOnRemoveTodoListClick={handleRemoveListTodo}
+          handleOnCompleteTodoListClick={handleCompleteListTodo}
+        />
       ) : null}
     </div>
   )

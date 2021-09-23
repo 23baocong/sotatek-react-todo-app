@@ -191,6 +191,11 @@ button:hover {
   padding: 1rem 2rem;
   margin-right: 2rem;
 }
+
 .bulk-action .removeBtn {
   padding: 1rem;
+}
+
+.line-through {
+  text-decoration: line-through;
 }

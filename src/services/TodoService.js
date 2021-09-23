@@ -47,3 +47,14 @@ export function removeTodoByListID(listID) {
     deleteTodo(element)
   })
 }
+
+export function completeTodoByListID(listID) {
+  const currentTodoList = listTodo()
+  listID.forEach((id) => {
+    const indexToDelete = currentTodoList.findIndex(
+      (element) => element.id === id
+    )
+    currentTodoList[indexToDelete].completed = true
+  })
+  setNewTodo(currentTodoList)
+}
