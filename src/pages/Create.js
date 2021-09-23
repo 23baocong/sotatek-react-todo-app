@@ -8,6 +8,7 @@ import Button from 'components/Button'
 import moment, { now } from 'moment'
 import { createTodo } from 'services/TodoService'
 import { uuid } from 'uuidv4'
+import { Link } from 'react-router-dom'
 
 function Create() {
   const [title, setTitle] = useState('')
@@ -88,6 +89,10 @@ function Create() {
       <Button buttonType="primary" handleOnClick={handleOnButtonAddNewClick}>
         Add
       </Button>
+
+      <Text>
+        To check todo list, please visit <Link to="/">todo list</Link>
+      </Text>
     </div>
   )
 }

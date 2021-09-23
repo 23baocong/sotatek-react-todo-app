@@ -5,6 +5,15 @@ import TodoItem from 'components/TodoItem'
 import BulkAction from 'components/BulkAction'
 import { listTodo, searchByTitle, deleteTodo } from 'services/TodoService'
 import { useBulkActionContext } from 'contexts/BulkActionContext'
+import { Link } from 'react-router-dom'
+
+function EmptyTodoList() {
+  return (
+    <Text>
+      Empty Todo please visit <Link to="/create">create todo</Link>
+    </Text>
+  )
+}
 
 function List() {
   const [currentTodoList, setCurrentTodoList] = useState(listTodo())
@@ -43,15 +52,19 @@ function List() {
         value={searchValue}
         handleOnChange={handleSearchByTitle}
       />
-      {currentTodoList.map((element) => {
-        return (
-          <TodoItem
-            key={element.id}
-            todo={element}
-            handleOnTodoDeleteClick={() => handleOnDeleteTodo(element.id)}
-          />
-        )
-      })}
+      {currentTodoList ? (
+        currentTodoList.map((element) => {
+          return (
+            <TodoItem
+              key={element.id}
+              todo={element}
+              handleOnTodoDeleteClick={() => handleOnDeleteTodo(element.id)}
+            />
+          )
+        })
+      ) : (
+        <EmptyTodoList />
+      )}
       {bulkActionOpen ? <BulkAction /> : null}
     </div>
   )
